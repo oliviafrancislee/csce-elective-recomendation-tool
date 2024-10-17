@@ -1,0 +1,91 @@
+Track 1: Algorithms and Theory
+CSCE 411 Analysis of Algorithms
+CSCE 433 Formal Languages and Automata
+CSCE 440 Quantum Algorithms
+CSCE 442 Scientific Programming
+[Fall 2018] CSCE 489 Introduction to Modern Cryptography
+ 
+
+Track 2: Systems
+CSCE 410 Operating Systems
+CSCE 412 Cloud Computing
+CSCE 416 Hardware Design and Verification
+CSCE 426 Security of Embedded Systems
+CSCE 456 Real-Time Computing
+CSCE 461 Embedded Systems for Medical Applications
+CSCE 462 Microcomputer Systems
+CSCE 463 Networks & Distributed Programming
+CSCE 464 Wireless and Mobile Systems
+CSCE 465 Computer & Network Security
+CSCE 469 Advanced Computer Architecture
+[Fall 2023] CSCE 489 Supervisory Control and Data Acquisition Security (SCADA) Security
+[Fall 2021] CSCE 489 Advances in Internet of Things
+[Spring 2020] CSCE 489 Security of Embedded Systems
+[Fall 2018] CSCE 489 Embedded Systems for Medical Applications
+[Summer 2018, Spring 2018] CSCE 489 Cloud Computing
+ 
+
+Track 3: Software
+CSCE 413 Software Security
+CSCE 429 Software Development, Globalization and Culture Abroad
+CSCE 430 Problem Solving Design
+CSCE 431 Software Engineering
+CSCE 434 Compiler Design
+CSCE 435 Parallel Computing
+CSCE 438 Distributed Objects Programming
+CSCE 451 Software Reverse Engineering
+[Fall 2023] Software Testing
+[Spring 2020, Fall 2018, Summer 2018] CSCE 489 Scripting Languages
+[Spring 2020, Fall 2018] CSCE 489 Software Security
+[Spring 2019] CSCE 489 Problem Solving Programming Strategies
+ 
+
+Track 4: Information and Intelligent Systems
+CSCE 305 Computational Data Science
+CSCE 310 Database Systems
+CSCE 320 Principles of Data Science
+CSCE 420 Artificial Intelligence
+CSCE 421 Machine Learning
+CSCE 432 Accessible Computing
+CSCE 436 Computer-Human Interaction
+CSCE 439 Data Analytics for Cybersecurity
+CSCE 441 Computer Graphics
+CSCE 443 Game Development
+CSCE 444 Structures of Interactive Information
+CSCE 445 Computers and New Media
+CSCE 446 Virtual Reality
+CSCE 447 Data Visualization
+CSCE 448 Computational Photography
+CSCE 449 Applied Cryptography
+CSCE 450 Computer Animation
+CSCE 452 Robotics and Spatial Intelligence
+CSCE 470 Information Storage and Retrieval
+[Fall 2024] CSCE 489 Digital Forensics Engineering
+[Fall 2023] VIST 489 Augmented Reality
+[Spring 2023] CSCE 489 Foundations and Applications of Blockchains
+[Fall 2022, Fall 2021, Spring 2021] CSCE 489 Data Analytics for Cybersecurity
+[Spring 2022, Spring 2021, Spring 2020] CSCE 489 Accessible Computing
+[Spring 2022, Spring 2021, Spring 2020] CSCE 489 Computational Photography
+[Spring 2022] SCE 489 Data Analytics and Viz
+[Fall 2021, Fall 2020] CSCE 489 Computer Animation
+[Fall 2021, Fall 2019] CSCE 489 Introduction to Modern Cryptography
+[Spring 2021] CSCE 489 Artificial Intelligence for Social Good
+[Spring 2021, Spring 2020] CSCE 489 Computational Photography
+[Spring 2021] CSCE 489 Recommender Systems
+[Spring 2021] CSCE 489 Techniques for Applied Cryptography
+[Summer 2019] CSCE 489 Analysis of Social Networks
+[Spring 2019] CSCE 489 Machine Learning
+[Fall 2018] CSCE 489 Natural Language Processing
+[Summer 2018, Spring 2018] CSCE 489 Mining Content Social Media
+[Spring 2018] CSCE 489 Data Visualization
+ 
+
+Untracked
+CSCE 402 Law & Policy in Cybersecurity
+CSCE 477 Cybersecurity Risk
+[Fall 2023, Spring 2023] CSCE 489 The Bitcoin Protocol
+[Spring 2024, Fall 2023] PHIL 489 Ethics in AI
+[Spring 2019, Fall 2018, Summer 2018, Spring 2018] CSCE 489 Law & Policy in Cybersecurity
+[Fall 2018, Spring 2018] CSCE 489 Cybersecurity Risk
+[Fall 2018, Spring 2018] CSCE 489 Digital Entrepreneurship
+[Spring 2018] CSCE 489 Problem Solving Programming Strategies
