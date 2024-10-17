@@ -4,8 +4,6 @@ CSCE 433 Formal Languages and Automata
 CSCE 440 Quantum Algorithms
 CSCE 442 Scientific Programming
 [Fall 2018] CSCE 489 Introduction to Modern Cryptography
- 
-
 Track 2: Systems
 CSCE 410 Operating Systems
 CSCE 412 Cloud Computing
@@ -23,8 +21,6 @@ CSCE 469 Advanced Computer Architecture
 [Spring 2020] CSCE 489 Security of Embedded Systems
 [Fall 2018] CSCE 489 Embedded Systems for Medical Applications
 [Summer 2018, Spring 2018] CSCE 489 Cloud Computing
- 
-
 Track 3: Software
 CSCE 413 Software Security
 CSCE 429 Software Development, Globalization and Culture Abroad
@@ -38,8 +34,6 @@ CSCE 451 Software Reverse Engineering
 [Spring 2020, Fall 2018, Summer 2018] CSCE 489 Scripting Languages
 [Spring 2020, Fall 2018] CSCE 489 Software Security
 [Spring 2019] CSCE 489 Problem Solving Programming Strategies
- 
-
 Track 4: Information and Intelligent Systems
 CSCE 305 Computational Data Science
 CSCE 310 Database Systems
@@ -78,8 +72,6 @@ CSCE 470 Information Storage and Retrieval
 [Fall 2018] CSCE 489 Natural Language Processing
 [Summer 2018, Spring 2018] CSCE 489 Mining Content Social Media
 [Spring 2018] CSCE 489 Data Visualization
- 
-
 Untracked
 CSCE 402 Law & Policy in Cybersecurity
 CSCE 477 Cybersecurity Risk
