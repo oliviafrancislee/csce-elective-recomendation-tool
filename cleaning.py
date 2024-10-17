@@ -2,6 +2,7 @@ import pprint
 import math
 import os, sys
 import re
+import matplotlib.pyplot as plt
 
 #get tracked elective list data and clean
 f = open("data/tracked_elective_list.txt", "r")
@@ -81,4 +82,30 @@ for key in tracked_elective_list_dict.keys():
             if course_id in course:
                 tracked_elective_list_dict[key][(course_id, course_name)] = course_catalog[course]
 
-print(tracked_elective_list_dict)
+# print(tracked_elective_list_dict)
+
+tracked_elective_list_dict['Systems'].pop(('CSCE 456', 'Real-Time Computing'))
+
+
+
+track_average_lens = {track: 0 for track in tracked_elective_list_dict.keys()}
+for track in tracked_elective_list_dict.keys():
+    for (credit_info, course_description) in tracked_elective_list_dict[track].values():
+        track_average_lens[track] += len(course_description.split())
+    track_average_lens[track] /= len(tracked_elective_list_dict[track])
+
+for (track, value) in track_average_lens.items():
+    print(track + " avg: " + str(value))
+
+
+keys = list(track_average_lens.keys())
+values = list(track_average_lens.values())
+
+plt.figure(figsize=(10, 6))
+plt.bar(keys, values, color='skyblue')
+plt.xlabel('Track')
+plt.ylabel('Avg Course Description Length')
+plt.title('Avg Course Description Length Per Track')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
