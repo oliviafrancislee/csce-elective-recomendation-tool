@@ -2,7 +2,7 @@ import cleaning
 
 def BM25(q):
     tracked_electives = cleaning.clean()
-    tfs = 
+    tfs = cleaning.term_frequencies()
     lengths = cleaning.docLengths()
     avg_lengths = cleaning.totalAvgDocLen()
     query = cleaning.clean_query(q)
