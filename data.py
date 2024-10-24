@@ -70,9 +70,6 @@ def clean_course_catalog_data():
     return course_catalog
 
 
-
-
-
 # add course catalog descriptions to tracked elective list dictionary
 def clean():
     tracked_elective_list_dict = clean_tracked_elective_list()
@@ -83,32 +80,65 @@ def clean():
                 if course_id in course:
                     tracked_elective_list_dict[key][(course_id, course_name)] = course_catalog[course]
 
-    tracked_elective_list_dict['Systems'].pop(('CSCE 456', 'Real-Time Computing'))
+    tracked_elective_list_dict['Systems'].pop(('CSCE 456', 'Real-Time Computing'))   #returns a dictionary of track key values parodied with sub-dictionary of course_id and course_name as a key paired to a tuple of course credit and course description
     return tracked_elective_list_dict
 
 
 
 
+#call lengths function to get the average lengths of all documents title and body
+# add up all the lengths for the body and title separately and divide by the number of documents
+def totalAvgDocLen():
+    doc_Lengths = docLengths() #get the document lengths
+    avgTitleLen = 0
+    avgBodyLen = 0
+    
+    #add up all the lengths for the body and title separately and divide by the number of documents
+    for doc in doc_Lengths.keys(): #for each document in the document lengths dictionary
+        avgTitleLen += doc_Lengths[doc]['title'] #add the title length to the average title length
+        avgBodyLen += doc_Lengths[doc]['body'] #add the body length to the average body length
+    
+    #divide the total title length by the number of documents to get the average title length
+    avgTitleLen = avgTitleLen/len(doc_Lengths)
+    #divide the total body length by the number of documents to get the average body length
+    avgBodyLen = avgBodyLen/len(doc_Lengths)
 
-def plot():
-    tracked_elective_list_dict = clean()
-    track_average_lens = {track: 0 for track in tracked_elective_list_dict.keys()}
-    for track in tracked_elective_list_dict.keys():
-        for (credit_info, course_description) in tracked_elective_list_dict[track].values():
-            track_average_lens[track] += len(course_description.split())
-        track_average_lens[track] /= len(tracked_elective_list_dict[track])
+    return {'title' : avgTitleLen, 'body' : avgBodyLen}
 
-    for (track, value) in track_average_lens.items():
-        print(track + " avg: " + str(value))
+    
+#lengths function to get lengths of all documents title and body.
+def docLengths():
+    #get the cleaned tracked elective list dictionary
+    tracked_elective_list_dict = clean() 
 
-    keys = list(track_average_lens.keys())
-    values = list(track_average_lens.values())
+    #make a dictionary of document titles keys paired to a dictionary of title length and body length
+    #doc_lengths = {
+                    # ('CSCE 456', 'Real-Time Computing'): zone_lengths = {
+                    #                                          'title': 2, 
+                    #                                          'body': 100 }, 
+                    # ('CSCE 470', 'Info Ret'): zone_lengths = {              
+                    #                                          'title': 2, 
+                    #                                          'body': 100 }
+                    # }
 
-    plt.figure(figsize=(10, 6))
-    plt.bar(keys, values, color='skyblue')
-    plt.xlabel('Track')
-    plt.ylabel('Avg Course Description Length')
-    plt.title('Avg Course Description Length Per Track')
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    plt.show()
+    doc_lengths = {}
+    for track in tracked_elective_list_dict.keys(): #for each track in the tracked elective list dictionary
+        for (course_id, course_name) in tracked_elective_list_dict[track].keys(): #for each course in the track (each key in the sub-dictionary) iterate through the titles
+            
+            zone_lengths = {}
+
+            #calculate the length of the course title
+            title_length = len(course_name.split()) #split the course name into words
+            #calculate the length of the course description
+            body_length = len(tracked_elective_list_dict[track][(course_id, course_name)][1].split()) #get the course description and split it into words
+
+            #add the title and body length to the zone_lengths dictionary
+            zone_lengths["title"] = title_length
+            zone_lengths["body"] = body_length
+
+            #add the zone_lengths dictionary to the doc_lengths dictionary
+            doc_lengths[(course_id, course_name)] = zone_lengths
+
+    return doc_lengths
+
+
