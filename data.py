@@ -83,7 +83,14 @@ def clean():
     tracked_elective_list_dict['Systems'].pop(('CSCE 456', 'Real-Time Computing'))   #returns a dictionary of track key values parodied with sub-dictionary of course_id and course_name as a key paired to a tuple of course credit and course description
     return tracked_elective_list_dict
 
-
+    #tracked_elective_list_dict = {
+                    # 'Systems' : course_catalog = {
+                    #                                          ('CSCE 456', 'Real-Time Computing'): ('course_credits', 'course_description'), 
+                    #                                          ('CSCE 411', 'Info Ret'): ('course_credits', 'course_description')}, 
+                    # 'Track Name': course_catalog = {              
+                    #                                          ('CSCE 412', 'Name 3'): ('course_credits', 'course_description'), 
+                    #                                          ('CSCE 430', 'Name 4'): ('course_credits', 'course_description')}
+                    # }
 
 
 #call lengths function to get the average lengths of all documents title and body
