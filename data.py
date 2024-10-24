@@ -90,6 +90,34 @@ def clean():
 
 
 
+def term_frequencies(tracked_elective_list_dict):
+    tfs = {}
+    for classes in tracked_elective_list_dict.values():
+        for class_name in classes.keys():
+            tf = {}
+            for word in classes[class_name][1].split(" "):
+                w = word.strip.lower().replace(".", "")
+                if w not in tf.keys():
+                    tfs[w] = 0
+                else:
+                    tfs[w] += 1
+            tfs[class_name] = tf
+        tfs.update({doc_name: {}})
+    tfs = {doc_name:{} for doc_name in tracked_elective_list_dict.values().keys()}
+    for 
+
+
+
+
+def clean_query(q):
+    query = []
+    for interest in q.split(','):
+        query.extend(interest.strip.split(' '))
+    return query
+
+
+
+
 def plot():
     tracked_elective_list_dict = clean()
     track_average_lens = {track: 0 for track in tracked_elective_list_dict.keys()}
