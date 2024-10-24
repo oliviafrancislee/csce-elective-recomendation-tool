@@ -19,4 +19,8 @@ def BM25(q):
                 # length['title'] /= (1-titleweight) + (titleweight * (lengths.get(d).get(type) / avgLengths.get(type)))
 
     }
-    
+
+
+    #iterate through tfs
+        #normalize tfs per zone (tfi): tf = tf / (1-b) + b * (lengths.get(d).get(type) / avgLengths.get(type))
+
