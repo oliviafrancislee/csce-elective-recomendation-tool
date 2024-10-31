@@ -43,7 +43,7 @@ def BM25(q):
 
 #Make function that calls BM25 and returns the top X results in each track 
 
-print(BM25("potato"))
+print(BM25("software engineering"))
 
 
 
