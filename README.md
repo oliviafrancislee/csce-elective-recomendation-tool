@@ -10,7 +10,6 @@ This tool recommends CSCE electives based on a custom BM25-based ranking algorit
 - NO DEPENDENCIES
 
 # Installation
-Clone the Repository
 Clone the project repository to your local machine:
 
       git clone https://github.com/yourusername/csce-elective-recommendation-tool.git
@@ -27,10 +26,11 @@ Directory Structure
     ├── tracked_elective_list.txt # List of electives grouped by track
     └── course_catalog.txt        # Catalog with descriptions and prerequisites
     
-Running the Code
-    Prepare the Data
+# Running the Code
+Prepare the Data
     Ensure the elective list (tracked_elective_list.txt) and course catalog (course_catalog.txt) files are in the data/ directory.
-    Execute the Script
+
+Execute the Script
     From the root directory, run the following command:   
     
     python3 .\src\bm25_algorithm\main.py
