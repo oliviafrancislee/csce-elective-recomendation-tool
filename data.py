@@ -169,7 +169,7 @@ def term_frequencies(tracked_elective_list_dict):
                     title_tf[w] += 1
                 
                 if w in dfs.keys():
-                    if class_name in dfs[w]:
+                    if class_name not in dfs[w]:
                         dfs[w].append(class_name)
                 elif w not in dfs.keys():
                     dfs[w] = [class_name]
@@ -181,7 +181,7 @@ def term_frequencies(tracked_elective_list_dict):
                     body_tf[w] += 1
 
                 if w in dfs.keys():
-                    if class_name in dfs[w]:
+                    if class_name not in dfs[w]:
                         dfs[w].append(class_name)
                 elif w not in dfs.keys():
                     dfs[w] = [class_name]

@@ -23,14 +23,16 @@ def BM25(q):
                 tftitle = (tfs[doc]['title'][word]) / (1-btitle) + (btitle * (lengths[doc]['title'] / avg_lengths['title']))
             else:
                 tftitle = 0
-                
+
             if word in tfs[doc]['body'].keys():
                 tfbody = (tfs[doc]['body'][word]) / (1-bbody) + (bbody * (lengths[doc]['body'] / avg_lengths['body']))
             else:
                 tfbody = 0
 
             tfnormalized = titleweight * tftitle + bodyweight * tfbody
-            bm25 += math.log((len(tracked_electives)) / len(dfs[word])) * ((k1 + 1) * tfnormalized) / (k1 + tfnormalized)
+
+            if word in dfs.keys():
+                bm25 += math.log((len(tracked_electives)) / len(dfs[word])) * ((k1 + 1) * tfnormalized) / (k1 + tfnormalized)
         
         bm25dict[doc] = bm25  
 
