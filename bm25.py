@@ -19,6 +19,7 @@ def BM25(q):
     for doc in tfs.keys():
         bm25 = 0
         for word in query:
+            print(word)
             if word in tfs[doc]['title'].keys():
                 tftitle = (tfs[doc]['title'][word]) / (1-btitle) + (btitle * (lengths[doc]['title'] / avg_lengths['title']))
             else:
@@ -31,7 +32,7 @@ def BM25(q):
 
             tfnormalized = titleweight * tftitle + bodyweight * tfbody
             bm25 += math.log((len(tracked_electives)) / len(dfs[word])) * ((k1 + 1) * tfnormalized) / (k1 + tfnormalized)
-        
+
         bm25dict[doc] = bm25  
 
     return sorted(bm25dict, key = bm25dict.get, reverse = True) 
@@ -40,9 +41,9 @@ def BM25(q):
 #Make function that calls BM25 and returns the top X results in each track 
 
 
-""" BM25("data science, machine learning, python") """
-tracked_electives = cleaning.clean()
+BM25("data science, machine learning, python")
+""" tracked_electives = cleaning.clean()
 tfs = cleaning.term_frequencies(tracked_electives)[0]
 dfs = cleaning.term_frequencies(tracked_electives)[1]
 
-print(dfs)
+print(dfs) """
