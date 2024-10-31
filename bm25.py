@@ -38,19 +38,12 @@ def BM25(q):
         
         bm25dict[doc] = bm25  
         
-    return bm25dict
-"""     return sorted(bm25dict, key = bm25dict.get, reverse = True) 
- """
+    return sorted(bm25dict, key = bm25dict.get, reverse = True) 
+
 
 #Make function that calls BM25 and returns the top X results in each track 
 
+print(BM25("potato"))
 
-BM25("software")
-""" print(BM25("software"))
- """""" tracked_electives = cleaning.clean()
-tfs = cleaning.term_frequencies(tracked_electives)[0]
-dfs = cleaning.term_frequencies(tracked_electives)[1]
-
-print(dfs) """
 
 
