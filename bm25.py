@@ -1,10 +1,10 @@
-import cleaning
+import data as cleaning
 import math
 
 def BM25(q):
     tracked_electives = cleaning.clean()
-    tfs = cleaning.term_frequencies()[0]
-    dfs = cleaning.term_frequencies()[1]
+    tfs = cleaning.term_frequencies(tracked_electives)[0]
+    dfs = cleaning.term_frequencies(tracked_electives)[1]
     lengths = cleaning.docLengths()
     avg_lengths = cleaning.totalAvgDocLen()
     query = cleaning.clean_query(q)
@@ -31,3 +31,6 @@ def BM25(q):
 
 
 #Make function that calls BM25 and returns the top X results in each track 
+
+
+BM25("data science, machine learning, python")

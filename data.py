@@ -161,19 +161,19 @@ def term_frequencies(tracked_elective_list_dict):
             body_tf = {}
             title_tf = {}
             for word in class_name[1].split(" "):
-                w = word.strip.lower()
+                w = word.strip().lower()
                 if w not in title_tf.keys():
                     title_tf[w] = 0
                 else:
                     title_tf[w] += 1
             for word in classes[class_name][1].split(" "):
-                w = word.strip.lower().replace(".|;", "")
+                w = word.strip().lower().replace(".|;", "")
                 if w not in body_tf.keys():
                     body_tf[w] = 0
                 else:
                     body_tf[w] += 1
-            tfs[class_name]['title'] = title_tf
-            tfs[class_name]['body'] = body_tf
+            tfs[class_name[0]]['title'] = title_tf
+            tfs[class_name[0]]['body'] = body_tf
     
 
 
