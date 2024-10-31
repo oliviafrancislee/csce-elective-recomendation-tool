@@ -38,12 +38,20 @@ def BM25(q):
         
         bm25dict[doc] = bm25  
         
-    return sorted(bm25dict, key = bm25dict.get, reverse = True) 
+    bm25ranking = sorted(bm25dict, key = bm25dict.get, reverse = True)
+    tracks_bm25ranking = {}
+    for track in tracked_electives.keys():
+        tracks_bm25ranking[track] = {}
+        for elective in bm25ranking:
+            if elective in tracked_electives[track].keys():
+                class_info = {}
+                class_info['score'] = bm25dict[elective]
+                class_info['desc'] = tracked_electives[track][elective]
+                tracks_bm25ranking[track][elective] = class_info
 
+    return tracks_bm25ranking
 
-#Make function that calls BM25 and returns the top X results in each track 
-
-print(BM25("potato"))
+print(BM25("software engineering, software development, quantum, cryptography"))
 
 
 
