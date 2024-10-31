@@ -2,7 +2,7 @@ import pprint
 import math
 import os, sys
 import re
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 #get tracked elective list data and clean
 def clean_tracked_elective_list():

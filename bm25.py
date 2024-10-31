@@ -15,6 +15,10 @@ def BM25(q):
     bbody = 0.2
     k1 = 1.3
 
+    N = 0
+    for electives in tracked_electives.values().keys():
+        N += 1
+
     bm25dict = {} #dictionary to store the bm25 scores for each document
     for doc in tfs.keys():
         bm25 = 0
@@ -32,7 +36,7 @@ def BM25(q):
             tfnormalized = titleweight * tftitle + bodyweight * tfbody
 
             if word in dfs.keys():
-                bm25 += math.log((len(tracked_electives)) / len(dfs[word])) * ((k1 + 1) * tfnormalized) / (k1 + tfnormalized)
+                bm25 += math.log(N / len(dfs[word])) * ((k1 + 1) * tfnormalized) / (k1 + tfnormalized)
         
         bm25dict[doc] = bm25  
 
