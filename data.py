@@ -155,25 +155,40 @@ def docLengths():
 
 
 def term_frequencies(tracked_elective_list_dict):
+    dfs = {}
     tfs = {}
     for classes in tracked_elective_list_dict.values():
         for class_name in classes.keys():
             body_tf = {}
             title_tf = {}
             for word in class_name[1].split(" "):
-                w = word.strip.lower()
+                w = word.strip().lower()
                 if w not in title_tf.keys():
                     title_tf[w] = 0
                 else:
                     title_tf[w] += 1
+                
+                if w in dfs.keys():
+                    if class_name in dfs[w]:
+                        dfs[w].append(class_name)
+                elif w not in dfs.keys():
+                    dfs[w] = [class_name]
             for word in classes[class_name][1].split(" "):
-                w = word.strip.lower().replace(".|;", "")
+                w = word.strip().lower().replace(".|;", "")
                 if w not in body_tf.keys():
                     body_tf[w] = 0
                 else:
                     body_tf[w] += 1
+
+                if w in dfs.keys():
+                    if class_name in dfs[w]:
+                        dfs[w].append(class_name)
+                elif w not in dfs.keys():
+                    dfs[w] = [class_name]
+            tfs[class_name] = {}
             tfs[class_name]['title'] = title_tf
             tfs[class_name]['body'] = body_tf
+    return (tfs, dfs)
     
 
 
