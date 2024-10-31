@@ -51,7 +51,4 @@ def BM25(q):
 
     return tracks_bm25ranking
 
-print(BM25("software engineering, software development, quantum, cryptography"))
-
-
 
