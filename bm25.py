@@ -42,4 +42,9 @@ def BM25(q):
 #Make function that calls BM25 and returns the top X results in each track 
 
 
-BM25("data science, machine learning, python")
+""" BM25("data science, machine learning, python") """
+tracked_electives = cleaning.clean()
+tfs = cleaning.term_frequencies(tracked_electives)[0]
+dfs = cleaning.term_frequencies(tracked_electives)[1]
+
+print(dfs)
