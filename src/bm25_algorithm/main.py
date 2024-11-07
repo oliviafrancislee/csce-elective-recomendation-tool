@@ -49,9 +49,20 @@ def tracked_endpoint():
         tracked_electives[category] = []
         for (course_code, course_name), details in courses.items():
             tracked_electives[category].append(course_code + " " + course_name)
-
-    print(tracked_electives)
     return jsonify(tracked_electives)
+
+@app.route('/untracked', methods=['GET'])
+def untracked_endpoint():
+    q = request.args.get('query')  # Get the query from the URL
+    results = bm25.BM25_untracked(q)  # Call your BM25 function with the query
+
+    # Extract course information based on the class code
+    untracked_electives = []
+    for (course_code, course_name) in results:
+        untracked_electives.append(course_code + " " + course_name)
+    
+    print(untracked_electives)
+    return jsonify(untracked_electives)
 
 if __name__ == "__main__":
     app.run(debug=True)

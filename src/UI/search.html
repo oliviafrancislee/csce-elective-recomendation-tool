@@ -47,16 +47,49 @@
         </div>
     </body>
     <script>
+        function greenBestTracks(q) {
+            $.ajax({
+                url: 'http://127.0.0.1:5000/untracked',  // Ensure the correct URL
+                type: 'GET',
+                data: { query: q },
+                success: function(response) {
+                    console.log(response)
+                    console.log(response[0])
+                    green = 4;
+                    untracked = 0;
+                    for (var i = 0; i < response.length; i++) {
+                        element = document.getElementById(response[i]);
+                        if (!(element.classList.contains("green"))) {
+                            if (element.classList.contains("Untracked")) {
+                                if (untracked < 1) {
+                                    element.classList.add("green")
+                                    untracked++;
+                                    green++;
+                                }
+                            }
+                            else {
+                                element.classList.add("green")
+                                green++;
+                            }
+                        }
+                        if (green == 7) {
+                            break;
+                        }
+                    }
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                    document.getElementById("track1").innerText = "No tracks retrieved";
+                }
+            });
+        }
         function getTrackedElectives(q) {
             $.ajax({
                 url: 'http://127.0.0.1:5000/tracked',  // Ensure the correct URL
                 type: 'GET',
                 data: { query: q },
-                success: function(response) {
-                    console.log(response.type);  // Debugging line
-                
+                success: function(response) {                
                     for (const [track, electives] of Object.entries(response)) {
-                        console.log(track)
                         const element = document.getElementById(track);
                         count = 0;
                         for (const elective of electives) {
@@ -65,6 +98,10 @@
                             const node = document.createTextNode(elective);
                             para.appendChild(node);
                             para.id = elective;
+                            para.classList.add("elective");
+                            if (track == "Untracked") {
+                                para.classList.add(track);
+                            }
                             if (count == 1 && track != "Untracked") {
                                 para.classList.add("green");
                             }
@@ -77,6 +114,7 @@
                             }
                         }
                     }
+                    greenBestTracks(q);
                 },
                 error: function(error) {
                     console.error('Error:', error);
@@ -85,41 +123,40 @@
             });
         }
         function openPopup(courseId) {
-                $.ajax({
-                    url: 'http://127.0.0.1:5000/bm25',  // Ensure the correct URL
-                    type: 'GET',
-                    data: { course_code: courseId },
-                    success: function(response) {
-                        console.log("Response from server:", response);  // Debugging line
-                        if (response.course_code) {
-                            const content = `<span class="popUplabel">Course Code:</span> ${response.course_code}<br>
-                                             <span class="popUplabel">Course Name:</span> ${response.course_name}<br>
-                                             <span class="popUplabel">Credits:</span> ${response.credits}<br>
-                                             <span class="popUplabel">Description:</span> ${response.description}`;
-                            document.getElementById("popupContent").innerHTML = content;
-                        } else {
-                            document.getElementById("popupContent").innerText = "No information available.";
-                        }
-                        document.getElementById("popup_id").style.display = "block";
-                    },
-                    error: function(error) {
-                        console.error('Error:', error);
-                        document.getElementById("popupContent").innerText = "Error retrieving information.";
-                        document.getElementById("popup_id").style.display = "block";
+            $.ajax({
+                url: 'http://127.0.0.1:5000/bm25',  // Ensure the correct URL
+                type: 'GET',
+                data: { course_code: courseId },
+                success: function(response) {
+                    if (response.course_code) {
+                        const content = `<span class="popUplabel">Course Code:</span> ${response.course_code}<br>
+                                            <span class="popUplabel">Course Name:</span> ${response.course_name}<br>
+                                            <span class="popUplabel">Credits:</span> ${response.credits}<br>
+                                            <span class="popUplabel">Description:</span> ${response.description}`;
+                        document.getElementById("popupContent").innerHTML = content;
+                    } else {
+                        document.getElementById("popupContent").innerText = "No information available.";
                     }
-                });
-            }
-
-            function closePopup() {
-                document.getElementById("popup_id").style.display = "none";
-            }
-
-            // Close the popup when the user clicks anywhere outside of the popup
-            window.onclick = function(event) {
-                var popup = document.getElementById("popup_id");
-                if (event.target == popup) {
-                    popup.style.display = "none";
+                    document.getElementById("popup_id").style.display = "block";
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                    document.getElementById("popupContent").innerText = "Error retrieving information.";
+                    document.getElementById("popup_id").style.display = "block";
                 }
+            });
+        }
+
+        function closePopup() {
+            document.getElementById("popup_id").style.display = "none";
+        }
+
+        // Close the popup when the user clicks anywhere outside of the popup
+        window.onclick = function(event) {
+            var popup = document.getElementById("popup_id");
+            if (event.target == popup) {
+                popup.style.display = "none";
             }
+        }
     </script>
 </html>
