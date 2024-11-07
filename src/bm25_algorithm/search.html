@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="search.css">
+        <script defer src="https://pyscript.net/releases/2022.09.1/pyscript.js"></script>   
+    </head>
+    <body>
+        <div id="search">
+            <form action="/action_page.php">
+                <label for="query">Search:</label>
+                <textarea type="text" id="query" name="query" placeholder="Enter a list of all your computer science interests separated by commas."></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div id="main">
+            <h1>CSCE Tracked Elective Recommendation Tool</h1>
+            <py-config>
+                paths = ['data.py']
+            </py-config>
+            <py-script src="./bm25.py"></py-script>
+            <div id="tracks">
+                <div class="track">
+                    <p>Track 1</p>
+                    <div id="track1"></div>
+                </div>
+                <div class="track">
+                    <p>Track 2</p>
+                    <div id="track2"></div>
+                </div>
+                <div class="track">
+                    <p>Track 3</p>
+                    <div id="track3">
+                    </div>
+                </div>
+                <div class="track">
+                    <p>Track 4</p>
+                    <div id="track4"></div>
+                </div>
+                <div class="track">
+                    <p>Untracked</p>
+                    <div id="untracked"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
