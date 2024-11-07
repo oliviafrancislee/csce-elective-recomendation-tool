@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pop-up Example</title>
+        <link rel="stylesheet" type="text/css" href="popup.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+
+       <!-- List of words -->
+       <ul>
+            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 110 Programming I<span class="plus-symbol">&#43;</span></li>
+            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 111 Introduction to Computer Science Concepts and Programming<span class="plus-symbol">&#43;</span></li>
+            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 120 Program Design and Concepts<span class="plus-symbol">&#43;</span></li>
+            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 121 Introduction to Program Design and Concepts<span class="plus-symbol">&#43;</span></li>
+            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 181 Introduction to Computing<span class="plus-symbol">&#43;</span></li>
+        </ul>
+        
+        <!-- The popup -->
+        <div id="popup_id" class="PopUpWindow">
+            <!-- popup content -->
+            <div class="popup-content">
+                <span class="closePopUpButton" onclick="closePopup()">&times;</span>
+                <p id="popupContent">Where Information will be displayed on pop up window</p>
+            </div>
+        </div>
+    
+        <py-script>
+            <!-- Your PyScript code here -->
+        </py-script>
+
+        <!-- JavaScript functions -->
+        <script>
+            function openPopup(courseId) {
+                $.ajax({
+                    url: 'http://127.0.0.1:5000/bm25',  // Ensure the correct URL
+                    type: 'GET',
+                    data: { course_code: courseId },
+                    success: function(response) {
+                        console.log("Response from server:", response);  // Debugging line
+                        if (response.course_code) {
+                            const content = `Course Code: ${response.course_code}\nCourse Name: ${response.course_name}\nCredits: ${response.credits}\nDescription: ${response.description}`;
+                            document.getElementById("popupContent").innerText = content;
+                        } else {
+                            document.getElementById("popupContent").innerText = "No information available.";
+                        }
+                        document.getElementById("popup_id").style.display = "block";
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                        document.getElementById("popupContent").innerText = "Error retrieving information.";
+                        document.getElementById("popup_id").style.display = "block";
+                    }
+                });
+            }
+
+            function closePopup() {
+                document.getElementById("popup_id").style.display = "none";
+            }
+
+            // Close the popup when the user clicks anywhere outside of the popup
+            window.onclick = function(event) {
+                var popup = document.getElementById("popup_id");
+                if (event.target == popup) {
+                    popup.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
