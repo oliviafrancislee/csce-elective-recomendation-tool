@@ -1,0 +1,41 @@
+body {
+    margin: 0%; height: 100%; overflow: hidden;
+    display: flex; flex-direction: row; justify-content: space-evenly;
+}
+#search {
+    width: 15%;
+}
+    form {
+        margin: 10px;
+        display: flex; flex-direction: column; justify-content: space-evenly;
+        height: 100%;
+    }
+    label {
+        text-align: center;
+        font-size: x-large;
+    }
+    textarea {
+        height: 70%;
+        width: 100%;
+    }
+    input {
+        font-size: large;
+    }
+#main { 
+    width: 80%;
+    display: flex; flex-direction: column; justify-content: space-evenly;
+}
+    h1 {
+        text-align: center;
+    }
+    #tracks {
+        height: 80%;
+        display: flex; flex-direction: row; justify-content: space-evenly;
+    }
+        .track {
+            width: 19%;
+            background-color: lightgray;
+        }
+        p {
+            text-align: center;
+        }

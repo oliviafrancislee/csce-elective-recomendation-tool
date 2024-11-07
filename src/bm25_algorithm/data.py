@@ -199,29 +199,3 @@ def clean_query(q):
     for interest in q.split(','):
         query.extend(interest.strip().split(' '))
     return query
-
-
-
-
-def plot():
-    tracked_elective_list_dict = clean()
-    track_average_lens = {track: 0 for track in tracked_elective_list_dict.keys()}
-    for track in tracked_elective_list_dict.keys():
-        for (credit_info, course_description) in tracked_elective_list_dict[track].values():
-            track_average_lens[track] += len(course_description.split())
-        track_average_lens[track] /= len(tracked_elective_list_dict[track])
-
-    for (track, value) in track_average_lens.items():
-        print(track + " avg: " + str(value))
-
-    keys = list(track_average_lens.keys())
-    values = list(track_average_lens.values())
-
-    plt.figure(figsize=(10, 6))
-    plt.bar(keys, values, color='skyblue')
-    plt.xlabel('Track')
-    plt.ylabel('Avg Course Description Length')
-    plt.title('Avg Course Description Length Per Track')
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    plt.show()
