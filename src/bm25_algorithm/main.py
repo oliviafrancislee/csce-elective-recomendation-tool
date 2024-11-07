@@ -38,5 +38,20 @@ def bm25_endpoint():
     print(f"Query: {course_code}, Course Info: {course_info}")  # Debugging line
     return jsonify(course_info)
 
+@app.route('/tracked', methods=['GET'])
+def tracked_endpoint():
+    q = request.args.get('query')  # Get the query from the URL
+    results = bm25.BM25(q)  # Call your BM25 function with the query
+
+    # Extract course information based on the class code
+    tracked_electives = {}
+    for category, courses in results.items():
+        tracked_electives[category] = []
+        for (course_code, course_name), details in courses.items():
+            tracked_electives[category].append(course_code + " " + course_name)
+
+    print(tracked_electives)
+    return jsonify(tracked_electives)
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -6,7 +6,7 @@ import re
 
 #get tracked elective list data and clean
 def clean_tracked_elective_list():
-    f = open("data/tracked_elective_list.txt", "r")
+    f = open("src/bm25_algorithm/data/tracked_elective_list.txt", "r")
 
     tracked_elective_list_dict = {}
     line = f.readline().strip()
@@ -38,7 +38,7 @@ def clean_tracked_elective_list():
 
 #get course_catalog data and clean
 def clean_course_catalog_data():
-    file_path = "data/course_catalog.txt" #path to the course catalog file
+    file_path = "src/bm25_algorithm/data/course_catalog.txt" #path to the course catalog file
     #Read in the course catalog file
     with open(file_path, 'r') as file:
         #lines is a list of strings where each string is a line in the file
@@ -199,29 +199,3 @@ def clean_query(q):
     for interest in q.split(','):
         query.extend(interest.strip().split(' '))
     return query
-
-
-
-
-def plot():
-    tracked_elective_list_dict = clean()
-    track_average_lens = {track: 0 for track in tracked_elective_list_dict.keys()}
-    for track in tracked_elective_list_dict.keys():
-        for (credit_info, course_description) in tracked_elective_list_dict[track].values():
-            track_average_lens[track] += len(course_description.split())
-        track_average_lens[track] /= len(tracked_elective_list_dict[track])
-
-    for (track, value) in track_average_lens.items():
-        print(track + " avg: " + str(value))
-
-    keys = list(track_average_lens.keys())
-    values = list(track_average_lens.values())
-
-    plt.figure(figsize=(10, 6))
-    plt.bar(keys, values, color='skyblue')
-    plt.xlabel('Track')
-    plt.ylabel('Avg Course Description Length')
-    plt.title('Avg Course Description Length Per Track')
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    plt.show()

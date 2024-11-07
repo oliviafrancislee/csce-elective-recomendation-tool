@@ -50,5 +50,3 @@ def BM25(q):
                 tracks_bm25ranking[track][elective] = class_info
 
     return tracks_bm25ranking
-
-print(BM25('software'))
