@@ -83,6 +83,16 @@
                 }
             });
         }
+        function deleteChild(element) {
+            let e = element;
+
+            //e.firstElementChild can be used. 
+            let child = e.lastElementChild;
+            while (child) {
+                e.removeChild(child);
+                child = e.lastElementChild;
+            }
+        }
         function getTrackedElectives(q) {
             $.ajax({
                 url: 'http://127.0.0.1:5000/tracked',  // Ensure the correct URL
@@ -91,6 +101,7 @@
                 success: function(response) {                
                     for (const [track, electives] of Object.entries(response)) {
                         const element = document.getElementById(track);
+                        deleteChild(element);
                         count = 0;
                         for (const elective of electives) {
                             count++;
