@@ -32,6 +32,8 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    text-align: left; /* Align text to the left */
+
 }
 
 /* Style for the labels */
@@ -58,6 +60,18 @@
     cursor: pointer;
 }
 
+/* The PopUpWindow (background) */
+.PopUpWindow {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
 /* Change cursor to pointer when hovering over list items */
 ul li {
