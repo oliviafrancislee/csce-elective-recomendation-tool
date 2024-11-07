@@ -9,10 +9,10 @@
 
        <!-- List of words -->
        <ul>
-            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 110 Programming I<span class="plus-symbol">&#43;</span></li>
-            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 111 Introduction to Computer Science Concepts and Programming<span class="plus-symbol">&#43;</span></li>
-            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 120 Program Design and Concepts<span class="plus-symbol">&#43;</span></li>
-            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 121 Introduction to Program Design and Concepts<span class="plus-symbol">&#43;</span></li>
+            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 411 Programming I<span class="plus-symbol">&#43;</span></li>
+            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 431 Introduction to Computer Science Concepts and Programming<span class="plus-symbol">&#43;</span></li>
+            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 440 Program Design and Concepts<span class="plus-symbol">&#43;</span></li>
+            <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 442 Introduction to Program Design and Concepts<span class="plus-symbol">&#43;</span></li>
             <li onclick="openPopup(this.innerText.substring(0, 8).trim())">CSCE 181 Introduction to Computing<span class="plus-symbol">&#43;</span></li>
         </ul>
         
@@ -39,8 +39,11 @@
                     success: function(response) {
                         console.log("Response from server:", response);  // Debugging line
                         if (response.course_code) {
-                            const content = `Course Code: ${response.course_code}\nCourse Name: ${response.course_name}\nCredits: ${response.credits}\nDescription: ${response.description}`;
-                            document.getElementById("popupContent").innerText = content;
+                            const content = `<span class="popUplabel">Course Code:</span> ${response.course_code}<br>
+                                             <span class="popUplabel">Course Name:</span> ${response.course_name}<br>
+                                             <span class="popUplabel">Credits:</span> ${response.credits}<br>
+                                             <span class="popUplabel">Description:</span> ${response.description}`;
+                            document.getElementById("popupContent").innerHTML = content;
                         } else {
                             document.getElementById("popupContent").innerText = "No information available.";
                         }

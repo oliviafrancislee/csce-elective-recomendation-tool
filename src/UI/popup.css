@@ -34,17 +34,26 @@
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
+/* Style for the labels */
+.popUplabel {
+    font-weight: bold;
+    color: #333; /* Customize the color as needed */
+    margin-right: 5px; /* Add some space between the label and the text */
+}
+
+
 /* The Close Button */
 .closePopUpButton {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+    color: #5c6569;
+    font-size: 36px; /* Increase the font size to make it chunkier */
     font-weight: bold;
+    float: right;
+    margin-top: -10px; /* Move the button up a bit */
 }
 
 .closePopUpButton:hover,
 .closePopUpButton:focus {
-    color: black;
+    color: rgb(236, 24, 24);
     text-decoration: none;
     cursor: pointer;
 }
