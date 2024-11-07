@@ -64,16 +64,13 @@
                             const para = document.createElement("p");
                             const node = document.createTextNode(elective);
                             para.appendChild(node);
-<<<<<<< HEAD:src/UI/search.html
                             para.id = elective;
                             if (count == 1 && track != "Untracked") {
                                 para.classList.add("green");
                             }
-=======
                             para.onclick = function() {
                                 openPopup(elective.substring(0, 8).trim());
                             };
->>>>>>> 250a481417a7c23bf004c1e6fb5e30bdedcd7669:src/bm25_algorithm/search.html
                             element.appendChild(para);
                             if (count > 5) {
                                 break;
