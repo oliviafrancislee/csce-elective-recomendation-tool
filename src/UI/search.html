@@ -14,24 +14,24 @@
             <h1>CSCE Tracked Elective Recommendation Tool</h1>
             <div id="tracks">
                 <div class="track">
-                    <p>Track 1</p>
+                    <h2>Track 1: Algorithms and Theory</h2>
                     <div id="Algorithms and Theory"></div>
                 </div>
                 <div class="track">
-                    <p>Track 2</p>
+                    <h2>Track 2: Systems</h2>
                     <div id="Systems"></div>
                 </div>
                 <div class="track">
-                    <p>Track 3</p>
+                    <h2>Track 3: Software</h2>
                     <div id="Software">
                     </div>
                 </div>
                 <div class="track">
-                    <p>Track 4</p>
+                    <h2>Track 4: Information and Intelligent</h2>
                     <div id="Information and Intelligent Systems"></div>
                 </div>
                 <div class="track">
-                    <p>Untracked</p>
+                    <h2>Untracked</h2>
                     <div id="Untracked"></div>
                 </div>
             </div>
@@ -49,12 +49,20 @@
                     for (const [track, electives] of Object.entries(response)) {
                         console.log(track)
                         const element = document.getElementById(track);
+                        count = 0;
                         for (const elective of electives) {
-                            console.log(elective)
+                            count++;
                             const para = document.createElement("p");
                             const node = document.createTextNode(elective);
                             para.appendChild(node);
+                            para.id = elective;
+                            if (count == 1 && track != "Untracked") {
+                                para.classList.add("green");
+                            }
                             element.appendChild(para);
+                            if (count > 5) {
+                                break;
+                            }
                         }
                     }
                 },
