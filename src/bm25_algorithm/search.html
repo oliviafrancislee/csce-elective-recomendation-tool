@@ -36,6 +36,15 @@
                 </div>
             </div>
         </div>
+        
+        <!-- The popup -->
+        <div id="popup_id" class="PopUpWindow">
+            <!-- popup content -->
+            <div class="popup-content">
+                <span class="closePopUpButton" onclick="closePopup()">&times;</span>
+                <p id="popupContent">Where Information will be displayed on pop up window</p>
+            </div>
+        </div>
     </body>
     <script>
         function getTrackedElectives(q) {
@@ -54,6 +63,9 @@
                             const para = document.createElement("p");
                             const node = document.createTextNode(elective);
                             para.appendChild(node);
+                            para.onclick = function() {
+                                openPopup(elective.substring(0, 8).trim());
+                            };
                             element.appendChild(para);
                         }
                     }
@@ -64,5 +76,42 @@
                 }
             });
         }
+        function openPopup(courseId) {
+                $.ajax({
+                    url: 'http://127.0.0.1:5000/bm25',  // Ensure the correct URL
+                    type: 'GET',
+                    data: { course_code: courseId },
+                    success: function(response) {
+                        console.log("Response from server:", response);  // Debugging line
+                        if (response.course_code) {
+                            const content = `<span class="popUplabel">Course Code:</span> ${response.course_code}<br>
+                                             <span class="popUplabel">Course Name:</span> ${response.course_name}<br>
+                                             <span class="popUplabel">Credits:</span> ${response.credits}<br>
+                                             <span class="popUplabel">Description:</span> ${response.description}`;
+                            document.getElementById("popupContent").innerHTML = content;
+                        } else {
+                            document.getElementById("popupContent").innerText = "No information available.";
+                        }
+                        document.getElementById("popup_id").style.display = "block";
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                        document.getElementById("popupContent").innerText = "Error retrieving information.";
+                        document.getElementById("popup_id").style.display = "block";
+                    }
+                });
+            }
+
+            function closePopup() {
+                document.getElementById("popup_id").style.display = "none";
+            }
+
+            // Close the popup when the user clicks anywhere outside of the popup
+            window.onclick = function(event) {
+                var popup = document.getElementById("popup_id");
+                if (event.target == popup) {
+                    popup.style.display = "none";
+                }
+            }
     </script>
 </html>
