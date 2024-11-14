@@ -17,7 +17,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 @app.route('/')
 def index():
-    return send_from_directory(os.getcwd(), 'src/UI/search.html')
+    return send_from_directory(os.getcwd(), 'search.html')
 
 @app.route('/bm25', methods=['GET'])
 def bm25_endpoint():
