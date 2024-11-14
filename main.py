@@ -8,12 +8,15 @@ if __name__ == "__main__":
     main()
 
 """ 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import bm25
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
+@app.route('/')
+def index():
+    return send_from_directory(os.getcwd(), 'src/UI/search.html')
 
 @app.route('/bm25', methods=['GET'])
 def bm25_endpoint():
