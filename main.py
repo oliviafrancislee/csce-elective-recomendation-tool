@@ -12,8 +12,7 @@ def index():
 @app.route('/bm25', methods=['GET'])
 def bm25_endpoint():
     course_code = request.args.get('course_code')  # Get the query from the URL
-    q = request.args.get('query')  # Get the query from the URL
-    results = bm25.BM25(q)  # Call your BM25 function with the query
+    results = bm25.BM25('software')  # Call your BM25 function with the query
     
     print(f"Query: {course_code}")
 
