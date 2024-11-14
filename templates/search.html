@@ -49,7 +49,7 @@
     <script>
         function greenBestTracks(q) {
             $.ajax({
-                url: 'http://127.0.0.1:5000/untracked',  // Ensure the correct URL
+                url: '/untracked',  // Ensure the correct URL
                 type: 'GET',
                 data: { query: q },
                 success: function(response) {
@@ -95,7 +95,7 @@
         }
         function getTrackedElectives(q) {
             $.ajax({
-                url: 'http://127.0.0.1:5000/tracked',  // Ensure the correct URL
+                url: '/tracked',  // Ensure the correct URL
                 type: 'GET',
                 data: { query: q },
                 success: function(response) {                
@@ -135,7 +135,7 @@
         }
         function openPopup(courseId) {
             $.ajax({
-                url: 'http://127.0.0.1:5000/bm25',  // Ensure the correct URL
+                url: '/bm25',  // Ensure the correct URL
                 type: 'GET',
                 data: { course_code: courseId },
                 success: function(response) {
