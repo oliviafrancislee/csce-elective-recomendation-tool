@@ -198,4 +198,6 @@ def clean_query(q):
     query = []
     for interest in q.split(','):
         query.extend(interest.strip().split(' '))
+    for i in range(len(query)):
+        query[i] = query[i].lower()
     return query
