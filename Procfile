@@ -1,1 +1,1 @@
-web: python3 /src/bm25_algorithm/main.py
+web: python /src/bm25_algorithm/main.py
