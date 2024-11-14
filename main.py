@@ -68,11 +68,8 @@ def untracked_endpoint():
     print(untracked_electives)
     return jsonify(untracked_electives)
 
-""" 
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  # Use PORT provided by Heroku, or default to 5000 for local testing
     app.run(debug=True, host="0.0.0.0", port=port)
- """
 
-if name == 'main':
-    app.run(debug=True, host='0.0.0.0', port=8080)
