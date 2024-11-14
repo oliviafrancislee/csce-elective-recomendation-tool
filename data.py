@@ -6,7 +6,7 @@ import re
 
 #get tracked elective list data and clean
 def clean_tracked_elective_list():
-    f = open("src/bm25_algorithm/data/tracked_elective_list.txt", "r")
+    f = open("/data/tracked_elective_list.txt", "r")
 
     tracked_elective_list_dict = {}
     line = f.readline().strip()
@@ -38,7 +38,7 @@ def clean_tracked_elective_list():
 
 #get course_catalog data and clean
 def clean_course_catalog_data():
-    file_path = "src/bm25_algorithm/data/course_catalog.txt" #path to the course catalog file
+    file_path = "/data/course_catalog.txt" #path to the course catalog file
     #Read in the course catalog file
     with open(file_path, 'r') as file:
         #lines is a list of strings where each string is a line in the file
