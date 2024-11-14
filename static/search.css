@@ -49,9 +49,8 @@ body {
         }
         p:hover {
             cursor: pointer;
+            background-color: rgb(200, 200, 200);
         }
-        
-
         .green {
             background-color: lightgreen;
         }
