@@ -37,6 +37,9 @@ body {
             width: 19%;
             background-color: lightgray;
         }
+        .track:hover {
+            cursor: pointer;
+        }
         h2 {
             text-align: center;
         }
@@ -46,6 +49,8 @@ body {
             padding: 10px;
             background-color: rgb(236, 236, 236);
         }
+        
+
         .green {
             background-color: lightgreen;
         }
