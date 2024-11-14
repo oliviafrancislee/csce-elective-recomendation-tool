@@ -1,1 +1,1 @@
-web: python src/main.py
+web: python .\src\bm25_algorithm\main.py
