@@ -1,13 +1,3 @@
-""" import bm25
-
-def main():
-    i = input("List your interests separated by commas: ")
-    print(bm25.BM25(i))
-
-if __name__ == "__main__":
-    main()
-
-""" 
 import os
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
@@ -22,7 +12,8 @@ def index():
 @app.route('/bm25', methods=['GET'])
 def bm25_endpoint():
     course_code = request.args.get('course_code')  # Get the query from the URL
-    results = bm25.BM25('software')  # Call your BM25 function with the query
+    q = request.args.get('query')  # Get the query from the URL
+    results = bm25.BM25(q)  # Call your BM25 function with the query
     
     print(f"Query: {course_code}")
 
